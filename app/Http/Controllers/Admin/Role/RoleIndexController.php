@@ -33,7 +33,7 @@ class RoleIndexController extends Controller
             'name' => $request->name
         ]);
 
-        // sync permission (lebih aman)
+
         $role->permissions()->sync($request->permission_id ?? []);
 
         return redirect()->route('role.index')

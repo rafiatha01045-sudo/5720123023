@@ -51,7 +51,7 @@ class PenjualanController extends Controller
             ->with('success', 'Transaksi berhasil');
     }
 
-    // ✅ EDIT
+
     public function edit($id)
     {
         $penjualan = Penjualan::findOrFail($id);
@@ -60,7 +60,7 @@ class PenjualanController extends Controller
         return view('admin.kasir.edit', compact('penjualan', 'barangs'));
     }
 
-    // ✅ UPDATE
+
     public function update(Request $request, $id)
     {
         $penjualan = Penjualan::findOrFail($id);
@@ -72,7 +72,7 @@ class PenjualanController extends Controller
 
         $barang = Barang::findOrFail($request->barang_id);
 
-        // balikin stok lama
+
         $barang->stok += $penjualan->jumlah;
 
         if ($barang->stok < $request->jumlah) {
@@ -95,7 +95,7 @@ class PenjualanController extends Controller
             ->with('success', 'Penjualan berhasil diupdate');
     }
 
-    // ✅ DELETE
+
     public function destroy($id)
     {
         $penjualan = Penjualan::findOrFail($id);

@@ -25,17 +25,17 @@ class LoginController extends Controller
 
             $user = Auth::user();
 
-            // ✅ ADMIN
+
             if ($user->role->name == 'admin') {
                 return redirect()->route('welcome');
             }
 
-            // ✅ KARYAWAN
+
             if ($user->role->name == 'karyawan') {
                 return redirect()->route('barang.index');
             }
 
-            // ✅ KASIR (INI YANG KAMU BUTUH 🔥)
+
             if ($user->role->name == 'kasir') {
                 return redirect()->route('kasir.index');
             }
